@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lincoln Taekwondo Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      padding: 2rem 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1 {
+      color: #ff4d4d;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    th {
+      background-color: #2a2a2a;
+      color: #ff4d4d;
+    }
+    tr:nth-child(even) {
+      background-color: #1f1f1f;
+    }
+    tr.approved {
+      background-color: #224422;
+      color: #aaffaa;
+      font-weight: bold;
+    }
+    button.approve-btn {
+      background-color: #ff4d4d;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    button.approve-btn:hover {
+      background-color: #cc3b3b;
+    }
+    .no-requests {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lincoln Taekwondo Admin Panel</h1>
+  <table id="signups-table" aria-label="Sign up requests">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Program</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="signups-body">
+      <!-- Filled by JS -->
+    </tbody>
+  </table>
+  <p class="no-requests" style="display:none;">No pending sign-up requests.</p>
+
+  <script>
+    const signupsTableBody = document.getElementById('signups-body');
+    const noRequestsText = document.querySelector('.no-requests');
+
+    // Load signups from localStorage
+    function loadSignups() {
+      const stored = localStorage.getItem('lincoln_taekwondo_signups');
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    // Save signups to localStorage
+    function saveSignups(data) {
+      localStorage.setItem('lincoln_taekwondo_signups', JSON.stringify(data));
+    }
+
+    // Render the table rows
+    function renderSignups() {
+      const signups = loadSignups();
+      signupsTableBody.innerHTML = '';
+
+      if (signups.length === 0) {
+        noRequestsText.style.display = 'block';
+        return;
+      } else {
+        noRequestsText.style.display = 'none';
+      }
+
+      signups.forEach((entry) => {
+        const tr = document.createElement('tr');
+        if (entry.approved) tr.classList.add('approved');
+
+        tr.innerHTML = `
+          <td>${entry.name}</td>
+          <td>${entry.age}</td>
+          <td>${entry.program}</td>
+          <td>${entry.approved ? 'Approved' : 'Pending'}</td>
+          <td>
+            ${entry.approved ? '' : `<button class="approve-btn" data-id="${entry.id}">Approve</button>`}
+          </td>
+        `;
+        signupsTableBody.appendChild(tr);
+      });
+
+      // Add event listeners for approve buttons
+      document.querySelectorAll('.approve-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          approveSignup(id);
+        });
+      });
+    }
+
+    // Approve a signup (mark approved and save)
+    function approveSignup(id) {
+      const signups = loadSignups();
+      const idx = signups.findIndex(e => e.id == id);
+      if (idx === -1) return;
+
+      signups[idx].approved = true;
+      saveSignups(signups);
+      renderSignups();
+    }
+
+    renderSignups();
+  </script>
+</body>
+</html>
