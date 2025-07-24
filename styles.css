@@ -7,18 +7,29 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background: var(--gray);
-  color: var(--black);
+  background: linear-gradient(-45deg, var(--black), var(--red), #800000, var(--black));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
   scroll-behavior: smooth;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 header {
-  background: var(--black);
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header img {
@@ -30,6 +41,11 @@ nav a {
   margin-left: 1rem;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--red);
 }
 
 section {
@@ -45,8 +61,6 @@ section.visible {
 }
 
 .hero {
-  background: center/cover no-repeat;
-  color: white;
   text-align: center;
   padding: 6rem 2rem;
 }
@@ -58,17 +72,19 @@ section.visible {
   border-left: 5px solid var(--red);
   background-size: cover;
   background-position: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   color: black;
+  border-radius: 8px;
 }
 
 .about, .signup, .reviews, .hours {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  color: black;
   margin: 2rem auto;
   max-width: 900px;
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 form input, form select, form textarea {
@@ -87,11 +103,7 @@ form button {
   padding: 0.75rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-footer {
-  background: var(--black);
-  color: white;
-  text-align: center;
-  padding: 2rem;
-}
+form button
