@@ -9,78 +9,110 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Taekwondo Logo">
-    <nav>
-      <a href="#programs">Programs</a>
-      <a href="#about">About</a>
-      <a href="#signup">Sign Up</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#hours">Hours</a>
-    </nav>
+  <header class="sticky-header">
+    <div class="container header-flex">
+      <img src="logo.png" alt="Logo" class="logo">
+      <nav>
+        <ul>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#signup">Sign Up</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#hours">Hours</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to Lincoln Taekwondo</h1>
-    <p>Empowering Confidence, Discipline, and Strength</p>
-  </section>
-
-  <section id="programs" class="programs">
-    <h2>Select a Program</h2>
-    <div style="background-image: url('kids-program.jpg');">
-      <h3>Kids Classes</h3>
-      <p>Fun, safe, and skill-building for ages 5–12.</p>
-    </div>
-    <div style="background-image: url('adult-program.jpg');">
-      <h3>Adult Classes</h3>
-      <p>Self-defense, fitness, and advanced techniques.</p>
-    </div>
-    <div style="background-image: url('competition.jpg');">
-      <h3>Competition Team</h3>
-      <p>Train for tournaments with the best coaches.</p>
+  <section class="hero fullscreen" style="background-image: url('background.jpg');">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>Lincoln Taekwondo</h1>
+      <p>Discipline. Confidence. Strength.</p>
+      <a href="#signup" class="btn-primary">Join Now</a>
     </div>
   </section>
 
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>Lincoln Taekwondo has been serving the community for over 2 years, helping students of all ages achieve their goals through the art of Taekwondo.</p>
+  <section id="programs" class="section fade-in">
+    <div class="container">
+      <h2 class="section-title">Our Programs</h2>
+      <div class="card-grid">
+        <div class="card" style="background-image: url('kids-program.jpg')">
+          <div class="card-content">
+            <h3>Kids Classes</h3>
+            <p>Fun, safe, and skill-building for ages 5–12.</p>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('adult-program.jpg')">
+          <div class="card-content">
+            <h3>Adult Classes</h3>
+            <p>Self-defense, fitness, and advanced techniques.</p>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('competition.jpg')">
+          <div class="card-content">
+            <h3>Competition Team</h3>
+            <p>Train for tournaments with the best coaches.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="signup" class="signup">
-    <h2>Sign Up</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <select required>
-        <option value="">Select a Program</option>
-        <option>Kids Classes</option>
-        <option>Adult Classes</option>
-        <option>Competition Team</option>
-      </select>
-      <textarea placeholder="Additional Notes"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+  <section id="about" class="section fade-in">
+    <div class="container narrow">
+      <h2 class="section-title">About Us</h2>
+      <p>Lincoln Taekwondo has been serving the community for over 2 years, helping students of all ages achieve their goals through the art of Taekwondo. Our certified black belt instructors are passionate about teaching discipline, focus, and respect while improving physical fitness.</p>
+    </div>
   </section>
 
-  <section id="reviews" class="reviews">
-    <h2>What Our Students Say</h2>
-    <p>⭐⭐⭐⭐⭐ "My kids love it here! The instructors are fantastic!"</p>
-    <p>⭐⭐⭐⭐⭐ "I've gained so much confidence thanks to this school."</p>
-    <p>⭐⭐⭐⭐⭐ "Top-tier training and a supportive community."</p>
+  <section id="signup" class="section fade-in">
+    <div class="container narrow">
+      <h2 class="section-title">Sign Up</h2>
+      <form class="form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <select required>
+          <option value="">Select a Program</option>
+          <option>Kids Classes</option>
+          <option>Adult Classes</option>
+          <option>Competition Team</option>
+        </select>
+        <textarea placeholder="Additional Notes"></textarea>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+    </div>
   </section>
 
-  <section id="hours" class="hours">
-    <h2>Business Hours</h2>
-    <ul>
-      <li>Monday - Friday: 4:00 PM - 9:00 PM</li>
-      <li>Saturday: 10:00 AM - 2:00 PM</li>
-      <li>Sunday: Closed</li>
-    </ul>
+  <section id="reviews" class="section fade-in">
+    <div class="container narrow">
+      <h2 class="section-title">Student Reviews</h2>
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐ "My kids love it here! The instructors are fantastic!"</p>
+      </div>
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐ "I've gained so much confidence thanks to this school."</p>
+      </div>
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐ "Top-tier training and a supportive community."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours" class="section fade-in">
+    <div class="container narrow">
+      <h2 class="section-title">Business Hours</h2>
+      <ul>
+        <li>Monday - Friday: 4:00 PM - 9:00 PM</li>
+        <li>Saturday: 10:00 AM - 2:00 PM</li>
+        <li>Sunday: Closed</li>
+      </ul>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Lincoln Taekwondo. All rights reserved.</p>
+    <p>&copy; 2025 Red Dragon Taekwondo. All rights reserved.</p>
   </footer>
 
 </body>
