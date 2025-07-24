@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,103 +7,119 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav>
-    <div class="logo">Lincoln Taekwondo</div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="menu" id="menu">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#programs" class="nav-link">Programs</a>
-      <a href="#signup" class="nav-link">Sign Up</a>
-      <a href="#reviews" class="nav-link">Reviews</a>
-      <a href="#about" class="nav-link">About Us</a>
-      <a href="admin.html">Admin</a>
-    </div>
-  </nav>
 
-  <section id="home" class="hero-section">
-    <div class="hero-content">
+  <header class="sticky-header">
+    <div class="header-flex container">
+      <a href="#hero" class="logo-link" aria-label="Lincoln Taekwondo Home">
+        <img src="logo.png" alt="Lincoln Taekwondo Logo" class="logo" />
+      </a>
+
+      <nav>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list" id="nav-menu">
+          <li><a href="#programs" tabindex="0">Programs</a></li>
+          <li><a href="#signup" tabindex="0">Sign Up</a></li>
+          <li><a href="#hours" tabindex="0">Hours</a></li>
+          <li><a href="#reviews" tabindex="0">Reviews</a></li>
+          <li><a href="#about" tabindex="0">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text fade-in">
       <img src="logo.png" alt="Lincoln Taekwondo Logo" class="hero-logo" />
-      <h1>Welcome to Lincoln Taekwondo</h1>
-      <p>Empowering discipline, fitness, and confidence.</p>
+      <h1>Lincoln Taekwondo</h1>
+      <p>Master the art of Taekwondo with us — join the family today!</p>
+      <a href="#signup" class="btn-primary">Sign Up Now</a>
     </div>
   </section>
 
-  <section id="programs" class="programs-section">
-    <h2>Our Programs</h2>
-    <div class="program-cards">
-      <div class="program-card" style="background-image: url('program-beginner.jpg')">
-        <div class="program-logo">🥋</div>
-        <h3>Beginner</h3>
-        <p>Perfect for newcomers learning fundamentals.</p>
+  <section id="programs" class="section with-side-label fade-in">
+    <span class="side-label">PROGRAMS</span>
+    <h2 class="section-title">Our Programs</h2>
+    <div class="card-grid container">
+      <div class="card" style="background-image: url('program1.jpg');" tabindex="0" role="button" aria-label="Kids Program">
+        <div class="card-content">
+          <h3>Kids Program</h3>
+          <p>Fun and discipline for ages 5-12</p>
+        </div>
       </div>
-      <div class="program-card" style="background-image: url('program-intermediate.jpg')">
-        <div class="program-logo">🔥</div>
-        <h3>Intermediate</h3>
-        <p>Challenge yourself and improve skills.</p>
+      <div class="card" style="background-image: url('program2.jpg');" tabindex="0" role="button" aria-label="Teen Program">
+        <div class="card-content">
+          <h3>Teen Program</h3>
+          <p>Build confidence and strength ages 13-17</p>
+        </div>
       </div>
-      <div class="program-card" style="background-image: url('program-advanced.jpg')">
-        <div class="program-logo">🏆</div>
-        <h3>Advanced</h3>
-        <p>For experienced students aiming for mastery.</p>
+      <div class="card" style="background-image: url('program3.jpg');" tabindex="0" role="button" aria-label="Adult Program">
+        <div class="card-content">
+          <h3>Adult Program</h3>
+          <p>Fitness and technique for all skill levels</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="signup" class="signup-form">
-    <h2>Sign Up</h2>
-    <form id="signup-form">
-      <div class="person-inputs">
-        <input type="text" id="name" placeholder="Full Name" required />
-        <input type="number" id="age" placeholder="Age" min="1" required />
-        <select id="program" required>
-          <option value="">Select Program</option>
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-        </select>
-        <button type="button" class="add-btn" onclick="addPerson()">+ Add Person</button>
-      </div>
-      <ul id="person-list"></ul>
-      <button type="submit" class="submit-btn">Submit Sign Up</button>
+  <section id="signup" class="section fade-in">
+    <h2 class="section-title">Sign Up</h2>
+    <form class="form container" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="program-select">Select Program</label>
+      <select id="program-select" name="program" required>
+        <option value="" disabled selected>Select a program</option>
+        <option value="kids">Kids Program</option>
+        <option value="teen">Teen Program</option>
+        <option value="adult">Adult Program</option>
+      </select>
+
+      <button type="submit" class="btn-primary">Submit</button>
     </form>
   </section>
 
-  <section id="reviews" class="reviews-section">
-    <h2>Reviews</h2>
-    <div class="review-cards">
-      <div class="review-card">
-        <p>"The instructors are amazing and patient. Great environment!"</p>
-        <span>- Emily R.</span>
-      </div>
-      <div class="review-card">
-        <p>"I love the progression in the programs, really helps build confidence."</p>
-        <span>- Jason T.</span>
-      </div>
-      <div class="review-card">
-        <p>"My kids have grown so much both physically and mentally."</p>
-        <span>- Sarah L.</span>
-      </div>
+  <section id="hours" class="section with-side-label fade-in">
+    <span class="side-label">HOURS</span>
+    <h2 class="section-title">Business Hours</h2>
+    <ul class="container hours-list">
+      <li>Monday - Friday: 4pm - 8pm</li>
+      <li>Saturday: 9am - 12pm</li>
+      <li>Sunday: Closed</li>
+    </ul>
+  </section>
+
+  <section id="reviews" class="section fade-in">
+    <h2 class="section-title">What Our Students Say</h2>
+    <div class="container">
+      <div class="review">"Amazing instructors and a welcoming environment!" – Sarah T.</div>
+      <div class="review">"My son has learned so much and gained confidence." – Mark R.</div>
+      <div class="review">"Great classes for all ages and skill levels." – Jennifer P.</div>
     </div>
   </section>
 
-  <section id="about" class="about-section">
-    <h2>About Us</h2>
-    <p>
-      Lincoln Taekwondo has been a cornerstone of martial arts education in the community since 1995.
-      We focus on discipline, respect, and personal growth, providing a safe space for all ages.
-    </p>
-    <p>
-      Our certified instructors tailor programs to all skill levels and emphasize both physical fitness and character development.
-    </p>
-    <p>
-      Join us to build strength, confidence, and lifelong skills!
-    </p>
+  <section id="about" class="section with-side-label fade-in">
+    <span class="side-label">ABOUT</span>
+    <h2 class="section-title">About Lincoln Taekwondo</h2>
+    <div class="container narrow">
+      <p>
+        Lincoln Taekwondo has been serving the community for over 15 years, providing quality martial arts training with a focus on respect, discipline, and personal growth. Our certified instructors offer programs for all ages and skill levels. Join us and become part of the family!
+      </p>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Lincoln Taekwondo. All rights reserved.</p>
+    &copy; 2025 Lincoln Taekwondo. All rights reserved.
   </footer>
 
-  <script src="script.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
