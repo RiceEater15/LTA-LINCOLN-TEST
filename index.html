@@ -68,20 +68,24 @@
 
   <section id="signup" class="section fade-in">
     <h2 class="section-title">Sign Up</h2>
-    <form class="form container" novalidate>
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+    <form id="signup-form" class="form container" novalidate>
+      <div id="people-container">
+        <div class="person-entry">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Full name" required />
+          <label>Age</label>
+          <input type="number" name="age" placeholder="Age" min="3" max="100" required />
+          <label>Program</label>
+          <select name="program" required>
+            <option value="" disabled selected>Select a program</option>
+            <option value="Kids">Kids Program</option>
+            <option value="Teen">Teen Program</option>
+            <option value="Adult">Adult Program</option>
+          </select>
+        </div>
+      </div>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-      <label for="program-select">Select Program</label>
-      <select id="program-select" name="program" required>
-        <option value="" disabled selected>Select a program</option>
-        <option value="kids">Kids Program</option>
-        <option value="teen">Teen Program</option>
-        <option value="adult">Adult Program</option>
-      </select>
+      <button type="button" id="add-person" class="btn-secondary" aria-label="Add another person to sign up">+ Add Another Person</button>
 
       <button type="submit" class="btn-primary">Submit</button>
     </form>
