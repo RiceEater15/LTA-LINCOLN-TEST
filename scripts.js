@@ -1,18 +1,27 @@
-const faders = document.querySelectorAll('.fade-in');
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
 
-const appearOptions = {
-  threshold: 0.3,
-  rootMargin: "0px 0px -50px 0px"
+// Intersection Observer for fade-in animations
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const observerOptions = {
+  threshold: 0.25
 };
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    }
   });
-}, appearOptions);
+}, observerOptions);
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+fadeElements.forEach(el => observer.observe(el));
