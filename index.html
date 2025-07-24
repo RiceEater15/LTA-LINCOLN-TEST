@@ -5,135 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lincoln Taekwondo</title>
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="scripts.js"></script>
 </head>
 <body>
 
   <header class="sticky-header">
-  <div class="header-flex container">
-    <a href="#hero" class="logo-link">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="logo" />
-    </a>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="#programs">Programs</a></li>
-        <li><a href="#signup">Sign Up</a></li>
-        <li><a href="#hours">Hours</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#about">About Us</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="header-flex container">
+      <a href="#hero" class="logo-link" aria-label="Lincoln Taekwondo Home">
+        <img src="logo.png" alt="Lincoln Taekwondo Logo" class="logo" />
+      </a>
 
+      <nav>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list" id="nav-menu">
+          <li><a href="#programs" tabindex="0">Programs</a></li>
+          <li><a href="#signup" tabindex="0">Sign Up</a></li>
+          <li><a href="#hours" tabindex="0">Hours</a></li>
+          <li><a href="#reviews" tabindex="0">Reviews</a></li>
+          <li><a href="#about" tabindex="0">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <section class="hero fullscreen" style="background-image: url('background.jpg');">
+  <section id="hero" class="hero">
     <div class="overlay"></div>
-    <div class="hero-text">
+    <div class="hero-text fade-in">
       <img src="logo.png" alt="Lincoln Taekwondo Logo" class="hero-logo" />
       <h1>Lincoln Taekwondo</h1>
-      <p>Discipline. Confidence. Strength.</p>
-      <a href="#signup" class="btn-primary">Join Now</a>
+      <p>Master the art of Taekwondo with us — join the family today!</p>
+      <a href="#signup" class="btn-primary">Sign Up Now</a>
     </div>
   </section>
 
-  <section id="programs" class="section fade-in with-side-label">
-    <div class="side-label">Taekwondo</div>
-    <div class="container">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="section-logo" />
-      <h2 class="section-title">Our Programs</h2>
-      <div class="card-grid">
-        <div class="card" style="background-image: url('kids-program.jpg')">
-          <div class="card-content">
-            <h3>Kids Classes</h3>
-            <p>Fun, safe, and skill-building for ages 5–12.</p>
-          </div>
+  <section id="programs" class="section with-side-label fade-in">
+    <span class="side-label">PROGRAMS</span>
+    <h2 class="section-title">Our Programs</h2>
+    <div class="card-grid container">
+      <div class="card" style="background-image: url('program1.jpg');" tabindex="0" role="button" aria-label="Kids Program">
+        <div class="card-content">
+          <h3>Kids Program</h3>
+          <p>Fun and discipline for ages 5-12</p>
         </div>
-        <div class="card" style="background-image: url('adult-program.jpg')">
-          <div class="card-content">
-            <h3>Adult Classes</h3>
-            <p>Self-defense, fitness, and advanced techniques.</p>
-          </div>
+      </div>
+      <div class="card" style="background-image: url('program2.jpg');" tabindex="0" role="button" aria-label="Teen Program">
+        <div class="card-content">
+          <h3>Teen Program</h3>
+          <p>Build confidence and strength ages 13-17</p>
         </div>
-        <div class="card" style="background-image: url('competition.jpg')">
-          <div class="card-content">
-            <h3>Competition Team</h3>
-            <p>Train for tournaments with the best coaches.</p>
-          </div>
+      </div>
+      <div class="card" style="background-image: url('program3.jpg');" tabindex="0" role="button" aria-label="Adult Program">
+        <div class="card-content">
+          <h3>Adult Program</h3>
+          <p>Fitness and technique for all skill levels</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section fade-in with-side-label">
-    <div class="side-label">Taekwondo</div>
+  <section id="signup" class="section fade-in">
+    <h2 class="section-title">Sign Up</h2>
+    <form class="form container" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="program-select">Select Program</label>
+      <select id="program-select" name="program" required>
+        <option value="" disabled selected>Select a program</option>
+        <option value="kids">Kids Program</option>
+        <option value="teen">Teen Program</option>
+        <option value="adult">Adult Program</option>
+      </select>
+
+      <button type="submit" class="btn-primary">Submit</button>
+    </form>
+  </section>
+
+  <section id="hours" class="section with-side-label fade-in">
+    <span class="side-label">HOURS</span>
+    <h2 class="section-title">Business Hours</h2>
+    <ul class="container hours-list">
+      <li>Monday - Friday: 4pm - 8pm</li>
+      <li>Saturday: 9am - 12pm</li>
+      <li>Sunday: Closed</li>
+    </ul>
+  </section>
+
+  <section id="reviews" class="section fade-in">
+    <h2 class="section-title">What Our Students Say</h2>
+    <div class="container">
+      <div class="review">"Amazing instructors and a welcoming environment!" – Sarah T.</div>
+      <div class="review">"My son has learned so much and gained confidence." – Mark R.</div>
+      <div class="review">"Great classes for all ages and skill levels." – Jennifer P.</div>
+    </div>
+  </section>
+
+  <section id="about" class="section with-side-label fade-in">
+    <span class="side-label">ABOUT</span>
+    <h2 class="section-title">About Lincoln Taekwondo</h2>
     <div class="container narrow">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="section-logo" />
-      <h2 class="section-title">About Us</h2>
       <p>
-        Lincoln Taekwondo has been serving our community for over 15 years,
-        helping students of all ages achieve their goals through the art of
-        Taekwondo. Our certified black belt instructors are passionate about
-        teaching discipline, focus, and respect while improving physical
-        fitness.
+        Lincoln Taekwondo has been serving the community for over 15 years, providing quality martial arts training with a focus on respect, discipline, and personal growth. Our certified instructors offer programs for all ages and skill levels. Join us and become part of the family!
       </p>
     </div>
   </section>
 
-  <section id="signup" class="section fade-in with-side-label">
-    <div class="side-label">Taekwondo</div>
-    <div class="container narrow">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="section-logo" />
-      <h2 class="section-title">Sign Up</h2>
-      <form class="form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <select required>
-          <option value="">Select a Program</option>
-          <option>Kids Classes</option>
-          <option>Adult Classes</option>
-          <option>Competition Team</option>
-        </select>
-        <textarea placeholder="Additional Notes"></textarea>
-        <button type="submit" class="btn-primary">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <section id="reviews" class="section fade-in with-side-label">
-    <div class="side-label">Taekwondo</div>
-    <div class="container narrow">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="section-logo" />
-      <h2 class="section-title">Student Reviews</h2>
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐ "My kids love it here! The instructors are fantastic!"</p>
-      </div>
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐ "I've gained so much confidence thanks to this school."</p>
-      </div>
-      <div class="review">
-        <p>⭐⭐⭐⭐⭐ "Top-tier training and a supportive community."</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="hours" class="section fade-in with-side-label">
-    <div class="side-label">Taekwondo</div>
-    <div class="container narrow">
-      <img src="logo.png" alt="Lincoln Taekwondo Logo" class="section-logo" />
-      <h2 class="section-title">Business Hours</h2>
-      <ul>
-        <li>Monday - Friday: 4:00 PM - 9:00 PM</li>
-        <li>Saturday: 10:00 AM - 2:00 PM</li>
-        <li>Sunday: Closed</li>
-      </ul>
-    </div>
-  </section>
-
   <footer>
-    <p>&copy; 2025 Lincoln Taekwondo. All rights reserved.</p>
+    &copy; 2025 Lincoln Taekwondo. All rights reserved.
   </footer>
-  
+
+  <script src="scripts.js"></script>
 </body>
 </html>
