@@ -14,7 +14,6 @@ body {
   color: #eee;
   line-height: 1.6;
   min-height: 100vh;
-  text-align: center;
 }
 
 @keyframes gradientBG {
@@ -26,8 +25,7 @@ body {
 .container {
   width: 90%;
   max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
+  margin: auto;
 }
 
 .narrow {
@@ -47,11 +45,8 @@ body {
 
 .header-flex {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
   max-width: 1100px;
   margin: auto;
   padding: 0 1rem;
@@ -60,7 +55,6 @@ body {
 .logo-link {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .logo {
@@ -77,10 +71,8 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 2rem;
   align-items: center;
-  text-align: center;
 }
 
 .nav-list li a {
@@ -191,6 +183,7 @@ nav {
   z-index: 1;
   max-width: 700px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .hero-logo {
@@ -266,6 +259,7 @@ nav {
   font-weight: 800;
   letter-spacing: 0.1em;
   color: #ff4d4d;
+  text-align: center;
 }
 
 /* Card Grid */
@@ -275,6 +269,7 @@ nav {
   gap: 2rem;
   margin-top: 2rem;
   width: 100%;
+  justify-content: center;
 }
 
 .card {
@@ -286,7 +281,7 @@ nav {
   background-position: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s, box-shadow 0.3s;
   background-color: #1e1e1e;
   color: white;
   display: flex;
@@ -396,6 +391,7 @@ nav {
   box-shadow: 0 3px 8px rgba(0,0,0,0.4);
   color: #eee;
   max-width: 700px;
+  text-align: center;
 }
 
 /* Business Hours */
